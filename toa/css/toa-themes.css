@@ -1,0 +1,115 @@
+/* ============================================================
+   toa:// CATEGORY SYSTEM — v1.0
+   Bergen, NO · 2026
+   ------------------------------------------------------------
+   The brand identity layer that maps the three brand colors to
+   the three APP CATEGORIES of the toa:// ecosystem:
+
+       tools    → GREEN    (blog, cms, ratings, windrose, tools)
+       games    → BLUE     (wowchar, games, scmissions, sctraining)
+       secure   → VIOLET   (auth, backup, vault)
+
+   The portal (toa://web — the directory) keeps the full
+   three-colour mark and the 3-split topstripe.
+
+   Load order:  toa-tokens.css → toa-themes.css → toa-components.css → toa-patterns.css
+   Set on <html data-theme="tools | games | secure | portal">.
+   Components must reference --app-* only, never the raw shade vars.
+   ============================================================ */
+
+/* Derived tints — follow --app-accent automatically, every theme.
+   This is what lets a single accent recolour the whole surface set
+   without per-theme rgba() tables. */
+[data-theme] {
+  --app-tint-soft: color-mix(in srgb, var(--app-accent) 6%,  transparent);
+  --app-tint:      color-mix(in srgb, var(--app-accent) 12%, transparent);
+  --app-tint-bd:   color-mix(in srgb, var(--app-accent) 28%, transparent);
+}
+
+/* ── TOOLS — green ─────────────────────────────────────────
+   Self-hosted utilities, writing, content, planners. */
+[data-theme="tools"] {
+  --app-cat:        "TOOLS";
+  --app-accent:     var(--green-500);
+  --app-accent-h:   var(--green-400);
+  --app-accent-a:   var(--green-600);
+  --app-secondary:  var(--green-600);
+  --app-highlight:  var(--green-300);
+  --app-stripe:     var(--green-500);
+  --app-status:     var(--green-400);
+  --app-focus-ring: 0 0 0 3px rgba(34, 197, 94, .18);
+  --logo-sep:       var(--green-500);
+}
+
+/* ── GAMES — blue ──────────────────────────────────────────
+   Game tooling, rosters, launchers, mission/training apps. */
+[data-theme="games"] {
+  --app-cat:        "GAMES";
+  --app-accent:     var(--blue-500);
+  --app-accent-h:   var(--blue-400);
+  --app-accent-a:   var(--blue-600);
+  --app-secondary:  var(--blue-600);
+  --app-highlight:  var(--blue-300);
+  --app-stripe:     var(--blue-500);
+  --app-status:     var(--green-400);   /* status green is universal */
+  --app-focus-ring: 0 0 0 3px rgba(37, 133, 218, .18);
+  --logo-sep:       var(--blue-500);
+}
+
+/* ── SECURE — violet ───────────────────────────────────────
+   Auth, backup, vaults, anything custodial / security-adjacent. */
+[data-theme="secure"] {
+  --app-cat:        "SECURITY";
+  --app-accent:     var(--violet-500);
+  --app-accent-h:   var(--violet-400);
+  --app-accent-a:   var(--violet-600);
+  --app-secondary:  var(--violet-600);
+  --app-highlight:  var(--violet-300);
+  --app-stripe:     var(--violet-500);
+  --app-status:     var(--green-400);
+  --app-focus-ring: 0 0 0 3px rgba(168, 85, 247, .18);
+  --logo-sep:       var(--violet-500);
+}
+
+/* ── PORTAL — the directory (toa://web only) ───────────────
+   Three-colour logo, 3-split topstripe, green primary CTA.
+   Never used by an individual app. */
+[data-theme="portal"] {
+  --app-cat:        "PORTAL";
+  --app-accent:     var(--green-500);
+  --app-accent-h:   var(--green-400);
+  --app-accent-a:   var(--green-600);
+  --app-secondary:  var(--blue-500);
+  --app-highlight:  var(--violet-500);
+  --app-stripe:     var(--green-500);
+  --app-status:     var(--green-400);
+  --app-focus-ring: 0 0 0 3px rgba(34, 197, 94, .18);
+  --logo-colon:     var(--blue-500);
+  --logo-slash1:    var(--green-500);
+  --logo-slash2:    var(--violet-500);
+}
+
+/* ============================================================
+   THEME-AWARE OVERRIDES for base components
+   ------------------------------------------------------------
+   toa-components.css (the original brand.css) hard-codes a few
+   green rgba() tints from when green was the only portal accent.
+   These re-point them at the live --app-accent so the base
+   components recolour correctly under tools/games/secure.
+   ============================================================ */
+.toa-app-card__icon,
+.toa-icon-tile--accent {
+  background: var(--app-tint);
+  border-color: var(--app-tint-bd);
+}
+.toa-btn--outline {
+  border-color: var(--app-tint-bd);
+}
+.toa-code {
+  color: var(--app-accent);
+  background: var(--app-tint-soft);
+  border-color: var(--app-tint-bd);
+}
+.toa-sidebar-item--active {
+  background: var(--app-tint-soft);
+}

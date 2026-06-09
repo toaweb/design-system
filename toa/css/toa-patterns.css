@@ -1,0 +1,199 @@
+/* ============================================================
+   toa:// PAGE PATTERNS — v1.0
+   Bergen, NO · 2026
+   ------------------------------------------------------------
+   Reusable page-level patterns layered on top of
+   toa-components.css. Everything here references --app-* tokens
+   so it recolours per [data-theme]. Load LAST.
+   ============================================================ */
+
+/* ── PAGE SCAFFOLD ──────────────────────────────────────── */
+.toa-page { min-height: 100vh; display: flex; flex-direction: column; }
+.toa-graph {
+  background-color: var(--toa-bg);
+  background-image:
+    linear-gradient(to right, rgba(184,199,217,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184,199,217,.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.toa-wrap { width: 100%; max-width: var(--toa-max-width); margin: 0 auto; padding: 0 var(--toa-side-padding); }
+.toa-wrap--wide { max-width: 1280px; }
+.toa-section-gap { padding: 28px 0 60px; }
+
+/* ── TOPSTRIPE — solid (apps) + 3-split (portal) ────────── */
+/* (.toa-topstripe / --web already in toa-components.css) */
+
+/* ── NAVBAR — dropdown extension ─────────────────────────
+   Built on .toa-navbar from toa-components.css. */
+.toa-navbar__link { position: relative; }
+.toa-nav-item { display: flex; align-items: stretch; position: relative; }
+.toa-nav-item > .toa-navbar__link { gap: 5px; }
+.toa-nav-item__caret { font-size: 8px; opacity: .7; }
+.toa-dropdown {
+  position: absolute; top: 100%; left: 0; min-width: 200px;
+  background: var(--toa-surface); border: 1px solid var(--toa-border);
+  border-top: 2px solid var(--app-accent);
+  display: none; flex-direction: column; z-index: 200;
+}
+.toa-nav-item:hover .toa-dropdown,
+.toa-nav-item:focus-within .toa-dropdown { display: flex; }
+.toa-dropdown__head {
+  font-size: var(--toa-fs-meta); font-weight: 700; letter-spacing: var(--toa-ls-meta);
+  text-transform: uppercase; color: var(--toa-hint);
+  padding: 9px 14px 6px; border-bottom: 1px dashed var(--toa-border);
+}
+.toa-dropdown__item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: var(--toa-fs-body); color: var(--toa-muted); text-decoration: none;
+  padding: 8px 14px; border-left: 2px solid transparent;
+  transition: background var(--toa-transition), color var(--toa-transition), border-color var(--toa-transition);
+}
+.toa-dropdown__item:hover { background: var(--app-tint-soft); color: var(--toa-text); border-left-color: var(--app-accent); }
+.toa-dropdown__item .k { color: var(--app-accent); font-weight: 700; }
+.toa-dropdown__item .meta { margin-left: auto; font-size: var(--toa-fs-meta); letter-spacing: 1px; color: var(--toa-hint); text-transform: uppercase; }
+
+/* ── URL-BAR — page chrome header ────────────────────────── */
+.toa-urlbar {
+  display: flex; align-items: stretch;
+  background: var(--toa-surface); border: 1px solid var(--toa-border);
+  font-size: 11px; overflow: hidden;
+}
+.toa-urlbar__lead { padding: 9px 12px; border-right: 1px solid var(--toa-border); color: var(--app-status); font-weight: 700; letter-spacing: 1px; }
+.toa-urlbar__path { padding: 9px 12px; flex: 1; color: var(--toa-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.toa-urlbar__path .dim { color: var(--toa-dim); }
+.toa-urlbar__path .sep { color: var(--logo-sep, var(--app-accent)); }
+.toa-urlbar__path .c1 { color: var(--logo-colon, var(--app-accent)); }
+.toa-urlbar__path .c2 { color: var(--logo-slash1, var(--app-accent)); }
+.toa-urlbar__path .c3 { color: var(--logo-slash2, var(--app-accent)); }
+.toa-urlbar__status { padding: 9px 12px; border-left: 1px solid var(--toa-border); color: var(--app-status); font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
+
+/* ── SHELL LINE — terminal prompt above a hero/section ───── */
+.toa-shell-line { font-size: 11px; color: var(--app-status); letter-spacing: 1px; font-weight: 700; margin: 14px 0; }
+.toa-blink::after { content: '▌'; margin-left: 2px; animation: toa-blink 1.1s steps(2) infinite; }
+@keyframes toa-blink { 0%, 50% { opacity: 1 } 51%, 100% { opacity: 0 } }
+
+/* ── LOGO — sizes + modes ────────────────────────────────── */
+.toa-logo { font-family: var(--toa-font); font-weight: 700; color: var(--toa-text); text-decoration: none; letter-spacing: -.5px; }
+.toa-logo--xl { font-size: 64px; letter-spacing: -2px; line-height: .95; }
+.toa-logo--lg { font-size: 32px; letter-spacing: -1px; }
+.toa-logo--md { font-size: 20px; }
+.toa-logo--sm { font-size: 15px; }
+/* portal mode — three colours */
+.toa-logo .pc1 { color: var(--logo-colon, var(--blue-500)); }
+.toa-logo .pc2 { color: var(--logo-slash1, var(--green-500)); }
+.toa-logo .pc3 { color: var(--logo-slash2, var(--violet-500)); }
+/* app mode — single category colour */
+.toa-logo .sep { color: var(--logo-sep, var(--app-accent)); }
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.toa-hero { padding: 8px 0 4px; }
+.toa-hero__title { font-size: var(--toa-fs-h1); font-weight: 700; line-height: var(--toa-lh-h1); letter-spacing: var(--toa-ls-h1); color: var(--toa-text); margin-bottom: 16px; }
+.toa-hero__title .out { color: transparent; -webkit-text-stroke: 2px var(--app-accent); }
+.toa-hero__title .dot { color: var(--app-accent); }
+.toa-hero__sub { font-size: 14px; color: var(--toa-muted); line-height: 1.7; max-width: 640px; margin-bottom: 22px; }
+.toa-hero__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ── SECTION LABEL ────────────────────────────────────────── */
+.toa-seclab { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; }
+.toa-seclab__pill { font-size: var(--toa-fs-label); font-weight: 700; letter-spacing: var(--toa-ls-label); text-transform: uppercase; color: var(--toa-bg); background: var(--app-accent); padding: 3px 9px; white-space: nowrap; }
+.toa-seclab__num  { font-size: var(--toa-fs-label); font-weight: 700; letter-spacing: var(--toa-ls-meta); color: var(--toa-dim); white-space: nowrap; }
+.toa-seclab__line { flex: 1; border-top: 1px dashed var(--toa-border); }
+.toa-seclab__meta { font-size: var(--toa-fs-label); font-weight: 700; letter-spacing: var(--toa-ls-meta); color: var(--toa-dim); text-transform: uppercase; white-space: nowrap; }
+
+/* ── DIVIDERS ─────────────────────────────────────────────── */
+.toa-div-dotted { border: 0; border-top: 1px dotted var(--toa-border2); margin: 36px 0; }
+.toa-div-dashed { border: 0; border-top: 1px dashed var(--toa-border); margin: 28px 0; }
+
+/* ── ASYMMETRIC APP GRID ──────────────────────────────────── */
+.toa-grid12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; }
+.col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; } .col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+@media (max-width: 720px) { .toa-grid12 > [class*="col-"] { grid-column: span 12; } }
+
+/* ── APP CARD (category-coloured, command CTA) ───────────── */
+.toa-appc { background: var(--toa-surface); border: 1px solid var(--toa-border); border-left: 3px solid var(--app-accent); padding: 16px; transition: border-color var(--toa-transition), transform var(--toa-transition); display: flex; flex-direction: column; }
+.toa-appc:hover { border-color: var(--toa-border2); transform: translateY(-2px); }
+.toa-appc--dim { opacity: .55; }
+.toa-appc__hd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.toa-appc__icon { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; background: var(--app-tint); color: var(--app-accent); letter-spacing: .5px; }
+.toa-appc__name { font-size: 14px; font-weight: 700; color: var(--toa-text); margin-bottom: 5px; }
+.toa-appc__name .sep { color: var(--logo-sep, var(--app-accent)); }
+.toa-appc__bigname { font-size: 30px; font-weight: 700; letter-spacing: -1px; line-height: .95; margin-bottom: 12px; color: var(--toa-text); }
+.toa-appc__bigname .sep { color: var(--logo-sep, var(--app-accent)); }
+.toa-appc__desc { font-size: 11px; color: var(--toa-muted); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.toa-appc__cmd { font-family: var(--toa-font); font-size: 11px; font-weight: 700; color: var(--toa-bg); background: var(--app-accent); padding: 8px 12px; display: block; text-align: left; text-decoration: none; cursor: pointer; border: none; width: 100%; transition: opacity var(--toa-transition); }
+.toa-appc__cmd:hover { opacity: .9; }
+.toa-appc__cmd::before { content: '$ '; opacity: .6; }
+.toa-appc__cmd--off { background: none; color: var(--toa-dim); border: 1px dashed var(--toa-border2); cursor: not-allowed; }
+.toa-appc__cmd--off::before { content: '# '; }
+
+/* category badge (status) */
+.toa-cbadge { font-size: 8px; font-weight: 700; letter-spacing: 1.5px; padding: 2px 7px; border: 1px solid; text-transform: uppercase; }
+.toa-cbadge--live    { color: var(--green-400); background: rgba(62,208,119,.10); border-color: rgba(62,208,119,.3); }
+.toa-cbadge--wip     { color: var(--app-accent); background: var(--app-tint); border-color: var(--app-tint-bd); }
+.toa-cbadge--planned { color: var(--toa-dim); background: rgba(159,178,200,.06); border-color: rgba(159,178,200,.22); }
+
+/* ── POST CARD (blog) ─────────────────────────────────────── */
+.toa-postc { background: var(--toa-surface); border: 1px solid var(--toa-border); transition: border-color var(--toa-transition), transform var(--toa-transition); display: flex; flex-direction: column; }
+.toa-postc:hover { border-color: var(--toa-border2); transform: translateY(-2px); }
+.toa-postc__art { aspect-ratio: 16/8; background: var(--toa-surface3); border-bottom: 1px solid var(--toa-border); display: flex; align-items: center; justify-content: center; color: var(--toa-hint); font-size: 9px; letter-spacing: 2px; }
+.toa-postc__body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.toa-postc__meta { font-size: var(--toa-fs-meta); font-weight: 700; letter-spacing: var(--toa-ls-meta); text-transform: uppercase; color: var(--toa-dim); display: flex; gap: 8px; }
+.toa-postc__title { font-size: 15px; font-weight: 700; color: var(--toa-text); line-height: 1.3; }
+.toa-postc__excerpt { font-size: 11px; color: var(--toa-muted); line-height: 1.6; flex: 1; }
+.toa-postc__more { font-size: 11px; font-weight: 700; color: var(--app-accent); text-decoration: none; }
+.toa-postc__more::after { content: ' →'; }
+
+/* ── LISTS ────────────────────────────────────────────────── */
+/* directory list (key → value rows) */
+.toa-dl { border: 1px solid var(--toa-border); }
+.toa-dl__row { display: flex; align-items: baseline; gap: 16px; padding: 10px 14px; border-bottom: 1px solid var(--toa-border); }
+.toa-dl__row:last-child { border-bottom: 0; }
+.toa-dl__row:nth-child(even) { background: rgba(12,18,32,.4); }
+.toa-dl__k { font-size: var(--toa-fs-label); font-weight: 700; letter-spacing: var(--toa-ls-meta); text-transform: uppercase; color: var(--toa-dim); min-width: 120px; }
+.toa-dl__v { font-size: 12px; color: var(--toa-muted); }
+.toa-dl__v .sep { color: var(--logo-sep, var(--app-accent)); }
+
+/* arrow list */
+.toa-ul { list-style: none; }
+.toa-ul li { position: relative; padding: 4px 0 4px 18px; font-size: 12px; color: var(--toa-muted); line-height: 1.6; }
+.toa-ul li::before { content: '→'; position: absolute; left: 0; color: var(--app-accent); }
+
+/* timeline (dotted spine) */
+.toa-timeline { position: relative; padding-left: 22px; }
+.toa-timeline::before { content: ''; position: absolute; left: 4px; top: 4px; bottom: 4px; border-left: 1px dotted var(--toa-border2); }
+.toa-timeline__item { position: relative; padding: 0 0 22px; }
+.toa-timeline__item::before { content: ''; position: absolute; left: -22px; top: 5px; width: 7px; height: 7px; background: var(--app-accent); }
+.toa-timeline__date { font-size: var(--toa-fs-meta); font-weight: 700; letter-spacing: var(--toa-ls-meta); text-transform: uppercase; color: var(--toa-dim); margin-bottom: 3px; }
+.toa-timeline__title { font-size: 13px; font-weight: 700; color: var(--toa-text); margin-bottom: 3px; }
+.toa-timeline__body { font-size: 11px; color: var(--toa-muted); line-height: 1.6; }
+
+/* ── DEPLOY FEED ──────────────────────────────────────────── */
+.toa-feed { background: var(--toa-surface); border: 1px solid var(--toa-border); border-left: 3px solid var(--app-status); padding: 14px 16px; font-size: 12px; line-height: 1.85; }
+.toa-feed__hd { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dotted var(--toa-border); font-size: var(--toa-fs-label); font-weight: 700; letter-spacing: var(--toa-ls-meta); color: var(--toa-dim); text-transform: uppercase; }
+.toa-feed__dot { width: 6px; height: 6px; background: var(--app-status); animation: toa-pulse-dot 2.4s infinite; }
+@keyframes toa-pulse-dot { 0%, 100% { opacity: 1 } 50% { opacity: .3 } }
+.toa-feed__row { display: grid; grid-template-columns: 150px 140px 70px 1fr; gap: 14px; align-items: baseline; padding: 2px 0; color: var(--toa-muted); }
+.toa-feed__ts { color: var(--toa-dim); }
+.toa-feed__app { font-weight: 700; }
+.toa-feed__app--tools  { color: var(--green-400); }
+.toa-feed__app--games  { color: var(--blue-400); }
+.toa-feed__app--secure { color: var(--violet-400); }
+.toa-feed__ev { color: var(--app-status); font-weight: 700; }
+.toa-feed__msg { color: var(--toa-text); }
+@media (max-width: 720px) { .toa-feed__row { grid-template-columns: 1fr; gap: 0; } }
+
+/* ── PROSE (reading density blocks) ──────────────────────── */
+.toa-prose { max-width: 680px; }
+.toa-prose p { font-size: var(--toa-fs-body); color: var(--toa-muted); line-height: var(--toa-lh-body); margin-bottom: 14px; }
+.toa-prose h2 { font-size: 20px; font-weight: 700; color: var(--toa-text); margin: 26px 0 10px; }
+.toa-prose h3 { font-size: 15px; font-weight: 700; color: var(--toa-text); margin: 20px 0 8px; }
+.toa-prose a { color: var(--app-accent); }
+.toa-prose strong { color: var(--toa-text); }
+.toa-prose code { font-family: var(--toa-font); color: var(--app-accent); background: var(--app-tint-soft); border: 1px solid var(--app-tint-bd); padding: 1px 5px; font-size: .92em; }
+
+/* ── FOOTER (shell line) ─────────────────────────────────── */
+.toa-foot { border-top: 1px dashed var(--toa-border); padding: 16px 0; font-size: 10px; color: var(--toa-dim); letter-spacing: .5px; }
+.toa-foot .sep { color: var(--logo-sep, var(--app-accent)); }

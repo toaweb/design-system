@@ -1,0 +1,179 @@
+/* ============================================================
+   toa:// brand.css — Component layer · v4.0
+   Bergen, NO · 2026
+   Imports colors_and_type.css implicitly (load it first).
+   ============================================================ */
+
+/* ── TOPSTRIPE — 3px, always first element ──────────────── */
+.toa-topstripe { height: 3px; width: 100%; background: var(--app-stripe, var(--green-500)); }
+.toa-topstripe--web {
+  display: flex;
+}
+.toa-topstripe--web > div { flex: 1; height: 100%; }
+.toa-topstripe--web .ts-blue   { background: var(--blue-500); }
+.toa-topstripe--web .ts-green  { background: var(--green-500); }
+.toa-topstripe--web .ts-violet { background: var(--violet-500); }
+
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.toa-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--toa-bg); }
+.toa-container { max-width: var(--toa-max-width); margin: 0 auto; padding: 0 var(--toa-side-padding); width: 100%; }
+.toa-main { flex: 1; padding: 36px 0; }
+
+/* ── NAVBAR ─────────────────────────────────────────────── */
+.toa-navbar { background: var(--toa-surface); border-bottom: 2px solid var(--app-accent); position: sticky; top: 0; z-index: 100; }
+.toa-navbar__inner { max-width: var(--toa-max-width); margin: 0 auto; height: 52px; display: flex; align-items: stretch; padding: 0 var(--toa-side-padding); }
+.toa-navbar__prompt { font-size: 11px; font-weight: 700; color: var(--app-accent); padding: 0 14px; border-right: 2px solid var(--app-accent); display: flex; align-items: center; }
+.toa-navbar__logo { font-size: 15px; font-weight: 700; color: var(--toa-text); text-decoration: none; padding: 0 16px; border-right: 1px solid var(--toa-border); display: flex; align-items: center; }
+.toa-navbar__links { display: flex; align-items: stretch; }
+.toa-navbar__link { font-size: 11px; color: var(--toa-muted); text-decoration: none; padding: 0 14px; border-right: 1px solid var(--toa-border); display: flex; align-items: center; transition: background 0.1s, color 0.1s; }
+.toa-navbar__link:hover, .toa-navbar__link.active { color: var(--toa-bg); background: var(--app-accent); }
+.toa-navbar__right { margin-left: auto; display: flex; align-items: stretch; }
+.toa-navbar__status { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: var(--app-accent); padding: 0 14px; border-left: 1px solid var(--toa-border); display: flex; align-items: center; }
+.toa-navbar__btn { font-family: var(--toa-font); font-size: 9px; color: var(--toa-muted); background: none; border: none; border-left: 1px solid var(--toa-border); padding: 0 14px; cursor: pointer; }
+
+/* ── BUTTONS ────────────────────────────────────────────── */
+.toa-btn { font-family: var(--toa-font); font-weight: 700; font-size: 11px; padding: 8px 16px; border: none; cursor: pointer; transition: all var(--toa-transition); display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.toa-btn--primary { background: var(--app-accent); color: var(--toa-bg); }
+.toa-btn--primary:hover { opacity: 0.9; }
+.toa-btn--ghost   { background: none; color: var(--toa-muted); border: 1px solid var(--toa-border); }
+.toa-btn--ghost:hover { color: var(--toa-text); border-color: var(--toa-border2); }
+.toa-btn--outline { background: none; color: var(--app-accent); border: 1px solid rgba(34,197,94,.3); }
+.toa-btn--disabled { background: none; color: var(--toa-hint); border: 1px solid var(--toa-border); cursor: not-allowed; opacity: 0.6; }
+.toa-btn--sm { font-size: 9px; padding: 5px 10px; }
+.toa-btn--lg { font-size: 13px; padding: 10px 22px; }
+
+/* ── BADGES ─────────────────────────────────────────────── */
+.toa-badge { display: inline-block; font-family: var(--toa-font); font-size: 7px; font-weight: 700; letter-spacing: 1.5px; padding: 2px 6px; border: 1px solid; }
+.toa-badge--live    { color: var(--green-500);  background: rgba(34,197,94,.1);   border-color: var(--bd-green); }
+.toa-badge--wip     { color: var(--blue-500);   background: rgba(37,133,218,.1);  border-color: var(--bd-blue); }
+.toa-badge--planned { color: var(--toa-hint);   background: rgba(71,85,105,.1);   border-color: rgba(71,85,105,.2); }
+.toa-badge--error   { color: var(--toa-danger); background: rgba(248,113,113,.1); border-color: var(--bd-danger); }
+.toa-badge--ai      { color: var(--violet-500); background: rgba(168,85,247,.1);  border-color: var(--bd-violet); }
+
+/* ── TAG / CHIP ─────────────────────────────────────────── */
+.toa-tag { display: inline-block; font-size: 7px; color: var(--toa-hint); background: var(--toa-surface2); border: 1px solid var(--toa-border); padding: 1px 5px; font-family: var(--toa-font); }
+
+/* ── CARDS ──────────────────────────────────────────────── */
+.toa-card { background: var(--toa-surface); border: 1px solid var(--toa-border); overflow: hidden; transition: border-color var(--toa-transition), transform var(--toa-transition); }
+.toa-card:hover { border-color: var(--toa-border2); transform: translateY(-2px); }
+.toa-card--dim { opacity: 0.65; }
+.toa-card__stripe { height: 2px; background: var(--app-accent); }
+.toa-card__body { padding: 14px; }
+
+/* App card — left accent stripe variant */
+.toa-app-card { background: var(--toa-surface); border: 1px solid var(--toa-border); border-left: 3px solid var(--app-accent); transition: border-color var(--toa-transition), transform var(--toa-transition); }
+.toa-app-card:hover { border-color: var(--toa-border2); border-left-color: var(--app-accent); transform: translateY(-2px); }
+.toa-app-card__body { padding: 12px; }
+.toa-app-card__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.toa-app-card__icon { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; font-family: var(--toa-font); letter-spacing: 0.5px; background: rgba(34,197,94,.12); color: var(--app-accent); }
+.toa-app-card__name { font-size: 12px; font-weight: 700; color: var(--toa-text); margin-bottom: 5px; }
+.toa-app-card__desc { font-size: 9px; color: var(--toa-dim); line-height: 1.5; margin-bottom: 8px; }
+.toa-app-card__tags { display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 10px; }
+.toa-app-card__footer { display: flex; gap: 6px; }
+.toa-app-card__open { font-family: var(--toa-font); font-size: 9px; font-weight: 700; color: var(--toa-bg); background: var(--app-accent); border: none; padding: 6px 0; text-decoration: none; flex: 1; text-align: center; }
+.toa-app-card__about { font-family: var(--toa-font); font-size: 9px; font-weight: 700; background: none; color: var(--toa-muted); border: 1px solid var(--toa-border); padding: 6px 10px; cursor: pointer; }
+
+/* ── INPUTS ─────────────────────────────────────────────── */
+.toa-input, .toa-textarea, .toa-select {
+  font-family: var(--toa-font); font-size: 11px; color: var(--toa-text);
+  background: var(--toa-surface3); border: 1px solid var(--toa-border);
+  padding: 9px 12px; width: 100%; outline: none;
+  transition: border-color var(--toa-transition), box-shadow var(--toa-transition);
+}
+.toa-input:focus, .toa-textarea:focus, .toa-select:focus {
+  border-color: var(--app-accent);
+  box-shadow: var(--app-focus-ring, 0 0 0 3px rgba(34, 197, 94, 0.18));
+}
+.toa-input::placeholder { color: var(--toa-hint); }
+
+.toa-label { font-size: 7px; font-weight: 700; letter-spacing: 2px; color: var(--toa-hint); display: block; margin-bottom: 5px; text-transform: uppercase; }
+
+/* Checkbox */
+.toa-check { width: 16px; height: 16px; background: var(--toa-surface3); border: 1px solid var(--toa-border); display: inline-flex; align-items: center; justify-content: center; }
+.toa-check--checked { background: var(--app-accent); border-color: var(--app-accent); }
+.toa-check--checked::after { content: '✓'; font-size: 9px; color: var(--toa-bg); font-weight: 700; }
+
+/* Toggle */
+.toa-toggle { width: 36px; height: 20px; background: var(--toa-border); border: 1px solid var(--toa-border2); position: relative; display: inline-block; }
+.toa-toggle::after { content: ''; width: 14px; height: 14px; background: var(--toa-muted); position: absolute; top: 2px; left: 2px; transition: transform var(--toa-transition); }
+.toa-toggle--on { background: var(--app-accent); border-color: var(--app-accent); }
+.toa-toggle--on::after { transform: translateX(16px); background: var(--toa-bg); }
+
+/* ── SECTION HEADER ─────────────────────────────────────── */
+.toa-sec-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.toa-sec-hd__label { font-size: 8px; font-weight: 700; letter-spacing: 3px; color: var(--toa-bg); background: var(--app-accent); padding: 3px 8px; white-space: nowrap; }
+.toa-sec-hd__count { font-size: 8px; font-weight: 700; letter-spacing: 2px; color: var(--toa-dim); }
+.toa-sec-hd__line { flex: 1; height: 1px; background: var(--toa-border); }
+.toa-sec-hd__status { font-size: 8px; font-weight: 700; letter-spacing: 2px; color: var(--app-accent); }
+
+/* ── DIVIDER ────────────────────────────────────────────── */
+.toa-divider { height: 1px; background: var(--toa-border); margin: 32px 0; }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.toa-footer { border-top: 1px solid var(--toa-border); background: var(--toa-surface); }
+.toa-footer__inner { max-width: var(--toa-max-width); margin: 0 auto; padding: 14px var(--toa-side-padding); font-size: 9px; color: var(--toa-hint); letter-spacing: 0.5px; }
+
+/* ── STAT CARD ──────────────────────────────────────────── */
+.toa-stat { background: var(--toa-surface2); border: 1px solid var(--toa-border); padding: 12px; position: relative; overflow: hidden; }
+.toa-stat__label { font-size: 7px; font-weight: 700; letter-spacing: 2px; color: var(--toa-hint); margin-bottom: 4px; }
+.toa-stat__value { font-size: 18px; font-weight: 700; color: var(--toa-text); line-height: 1; margin-bottom: 2px; }
+.toa-stat__desc  { font-size: 9px; color: var(--toa-dim); }
+
+/* ── SIDEBAR ITEM ───────────────────────────────────────── */
+.toa-sidebar-item { display: flex; align-items: center; gap: 8px; padding: 7px 16px; font-size: 10px; color: var(--toa-muted); text-decoration: none; border-left: 2px solid transparent; transition: all .12s; }
+.toa-sidebar-item:hover { color: var(--toa-text); background: rgba(255,255,255,.02); }
+.toa-sidebar-item--active { color: var(--app-accent); background: rgba(34,197,94,.06); border-left-color: var(--app-accent); }
+
+/* ============================================================
+   v4.1 — additions
+   ============================================================ */
+
+/* ── ICON TILE — gives icons a defined home on dark surfaces ── */
+.toa-icon-tile {
+  width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+  background: var(--toa-surface2); border: 1px solid var(--toa-border);
+  color: var(--toa-muted); transition: color var(--toa-transition), border-color var(--toa-transition), background var(--toa-transition);
+}
+.toa-icon-tile:hover { color: var(--app-accent); border-color: var(--app-accent); background: var(--toa-surface3); }
+.toa-icon-tile--accent { color: var(--app-accent); background: rgba(34,197,94,.08); border-color: var(--bd-green); }
+.toa-icon-tile--lg { width: 36px; height: 36px; }
+.toa-icon-tile svg { width: 60%; height: 60%; }
+
+/* ── STATUS-ONLY GREEN — separate from CTA green (v4.1) ─────── */
+.toa-status { color: var(--app-status, var(--green-400)); }
+.toa-badge--live { color: var(--app-status, var(--green-400)); border-color: rgba(62,208,119,.3); background: rgba(62,208,119,.1); }
+
+/* ── SYSTEM FEEDBACK STATES ─────────────────────────────────── */
+.toa-state { background: var(--toa-surface); border: 1px solid var(--toa-border); padding: 28px; text-align: center; font-family: var(--toa-font); }
+.toa-state__prompt { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--app-accent); margin-bottom: 10px; }
+.toa-state__msg { font-size: 14px; color: var(--toa-muted); margin-bottom: 6px; }
+.toa-state__hint { font-size: 11px; color: var(--toa-dim); }
+.toa-state--empty .toa-state__prompt { color: var(--toa-dim); }
+.toa-state--error { border-color: var(--bd-danger); }
+.toa-state--error .toa-state__prompt { color: var(--toa-danger); }
+.toa-state--success { border-color: var(--bd-green); }
+.toa-state--success .toa-state__prompt { color: var(--app-status, var(--green-400)); }
+.toa-state--loading .toa-state__prompt::after { content: '...'; display: inline-block; animation: toa-pulse 1.2s infinite steps(4); }
+@keyframes toa-pulse { 0% { opacity: 0.3 } 50% { opacity: 1 } 100% { opacity: 0.3 } }
+
+/* ── TOAST ──────────────────────────────────────────────────── */
+.toa-toast { display: inline-flex; align-items: center; gap: 8px; font-family: var(--toa-font); font-size: 11px; font-weight: 700; padding: 9px 14px; background: var(--toa-surface); border: 1px solid var(--toa-border); border-left: 3px solid var(--app-accent); color: var(--toa-text); }
+.toa-toast--success { border-left-color: var(--app-status, var(--green-400)); color: var(--app-status, var(--green-400)); }
+.toa-toast--error   { border-left-color: var(--toa-danger); color: var(--toa-danger); }
+.toa-toast--info    { border-left-color: var(--app-secondary); color: var(--app-secondary); }
+
+/* ── TABLE ──────────────────────────────────────────────────── */
+.toa-table { width: 100%; border-collapse: collapse; font-family: var(--toa-font); font-size: 12px; }
+.toa-table th { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--toa-dim); text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--toa-border); background: var(--toa-surface2); }
+.toa-table th .toa-sort { color: var(--app-accent); margin-left: 4px; }
+.toa-table td { padding: 11px 12px; color: var(--toa-muted); border-bottom: 1px solid var(--toa-border); }
+.toa-table tr:hover td { background: var(--toa-surface2); color: var(--toa-text); }
+.toa-table td.num { font-variant-numeric: tabular-nums; color: var(--toa-text); }
+
+/* ── MOBILE TOPSTRIPE COLLAPSE ──────────────────────────────── */
+@media (max-width: 600px) {
+  .toa-topstripe--web { display: block; background: var(--app-accent); }
+  .toa-topstripe--web > div { display: none; }
+}
+
+/* End brand.css */

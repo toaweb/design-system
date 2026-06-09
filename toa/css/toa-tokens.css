@@ -1,0 +1,369 @@
+/* ============================================================
+   toa:// Brand — colors_and_type.css
+   Bergen, NO · 2026 · v4.0
+   "Retrofuturist + neo-brutalist. Terminal aesthetics.
+    Monospace everywhere. Sharp corners. Three color families."
+   ============================================================
+   Source of truth: original brand.css from toaweb/toaweb repo.
+   This file consolidates the COLOR + TYPE foundations only.
+   For full component CSS, see brand.css (component layer).
+   ============================================================ */
+
+/* ── BRAND FONT — Courier Prime (open-source, Quote-Unquote Apps) ──
+   Drop-in replacement for "Courier New". Cleaner forms, true bold,
+   purpose-drawn for screen reading. Loaded from project /fonts/. */
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('fonts/CourierPrime-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('fonts/CourierPrime-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('fonts/CourierPrime-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('fonts/CourierPrime-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+
+  /* ────────────────────────────────────────────────
+     COLOR — Three families, full ramps.
+     Brand uses ONLY blue / green / violet.
+     Amber, gold, yellow are PERMANENTLY BANNED.
+     ──────────────────────────────────────────────── */
+
+  /* Blue family — #2585DA ★ portal & software accent */
+  --blue-50:  #EBF4FC;
+  --blue-100: #B8D9F5;
+  --blue-200: #7FBCEE;
+  --blue-300: #93C5FD;   /* gaming electric highlight */
+  --blue-400: #4D9FE3;   /* gaming secondary, hover */
+  --blue-500: #2585DA;   /* ★ PRIMARY */
+  --blue-600: #1B6CB8;   /* active */
+  --blue-700: #1A5EA3;   /* deep active */
+  --blue-800: #061A30;
+  --blue-900: #030E1A;
+
+  /* Green family — #22C55E ★ CTA, portal, topstripe */
+  --green-50:  #EAFAF0;
+  --green-100: #A7ECC2;
+  --green-200: #6CDC99;
+  --green-300: #6EE7B7;   /* gaming extreme hover */
+  --green-400: #3ED077;   /* ★ gaming primary */
+  --green-500: #22C55E;   /* ★ PRIMARY */
+  --green-600: #16A34A;   /* active, software secondary */
+  --green-700: #15803D;
+  --green-800: #042914;
+  --green-900: #021609;
+
+  /* Violet family — #A855F7 ★ auth & portal 3rd */
+  --violet-50:  #F5EEFF;
+  --violet-100: #DEB8FB;
+  --violet-200: #C786F9;
+  --violet-300: #C4B5FD;   /* gaming magic hover */
+  --violet-400: #B86EF8;   /* gaming magic primary */
+  --violet-500: #A855F7;   /* ★ PRIMARY */
+  --violet-600: #8B33D4;   /* active */
+  --violet-700: #7C2CC0;
+  --violet-800: #2D0750;
+  --violet-900: #1A0430;
+
+  /* ────────────────────────────────────────────────
+     SURFACE / TEXT / META — dark-first
+     ──────────────────────────────────────────────── */
+  --toa-bg:        #04070E;   /* page background — deeper black */
+  --toa-surface:   #080D18;   /* cards, navbar, panels */
+  --toa-surface2:  #0C1220;   /* alternate rows, inputs */
+  --toa-surface3:  #0E1828;   /* deep inset areas */
+  --toa-border:    #243344;   /* card edges */
+  --toa-border2:   #2E4159;   /* hover borders */
+
+  /* TEXT — v4.1 brightened ramp.
+     Old --toa-muted #7A8FA8 / --toa-dim #3D5166 / --toa-hint #243344
+     all failed AA on --toa-bg. New ramp: AA → AA → AA-large → placeholder. */
+  --toa-text:      #F8FAFC;   /* primary text — 16:1 */
+  --toa-muted:     #B8C7D9;   /* body text — ~10:1 (was #7A8FA8) */
+  --toa-dim:       #9FB2C8;   /* labels, meta — ~7:1  (was #3D5166) */
+  --toa-hint:      #6E8198;   /* placeholders — ~4.5:1 (was #243344) */
+
+  /* Semantic */
+  --toa-danger:    #F87171;
+  --toa-warn:      #F59E0B;   /* used for warnings ONLY, NEVER as accent */
+
+  /* Alpha border helpers (.25) */
+  --bd-green:  rgba(34, 197, 94, 0.25);
+  --bd-blue:   rgba(37, 133, 218, 0.25);
+  --bd-violet: rgba(168, 85, 247, 0.25);
+  --bd-danger: rgba(248, 113, 113, 0.25);
+
+  /* ────────────────────────────────────────────────
+     TYPOGRAPHY — monospace ONLY. Always.
+     ──────────────────────────────────────────────── */
+  --toa-font:                'Courier Prime', 'Courier New', 'Courier', monospace;
+
+  /* Font-size scale (deliberately tiny — terminal aesthetic) */
+  --toa-fs-h1:               64px;   /* hero — 52-64 */
+  --toa-fs-h2:               24px;
+  --toa-fs-h3:               16px;
+  --toa-fs-body:             12px;   /* body — base */
+  --toa-fs-small:            10px;
+  --toa-fs-label:            8px;    /* uppercase + 3px tracking */
+  --toa-fs-meta:             7px;    /* meta, badges, sub-labels */
+
+  /* Letter-spacing */
+  --toa-ls-h1:               -2px;
+  --toa-ls-label:            3px;    /* labels = 8px / 700 / +3px tracking */
+  --toa-ls-meta:             2px;
+  --toa-ls-tag:              1.5px;
+
+  /* Line-height */
+  --toa-lh-h1:               0.92;
+  --toa-lh-body:             1.7;
+  --toa-lh-tight:            1.3;
+
+  /* ────────────────────────────────────────────────
+     SHAPE — neo-brutalist (NEVER round)
+     ──────────────────────────────────────────────── */
+  --toa-radius-sm:   0px;
+  --toa-radius:      0px;
+  --toa-radius-md:   0px;
+  --toa-radius-lg:   0px;
+
+  /* Layout */
+  --toa-max-width:     1080px;
+  --toa-side-padding:  20px;
+
+  /* Transition standard — micro, functional */
+  --toa-transition:    0.15s ease;
+  --toa-touch-min:     44px;
+
+  /* App-theme defaults (portal) — overridden by [data-theme] */
+  --app-accent:    var(--green-500);
+  --app-secondary: var(--blue-500);
+  --app-highlight: var(--violet-500);
+}
+
+/* ============================================================
+   APP THEMES — apply via <html data-theme="X"> on root
+   ============================================================ */
+
+/* portal — toaweb.com only (3-split topstripe) */
+[data-theme="portal"] {
+  --app-accent:    var(--green-500);
+  --app-accent-h:  var(--green-400);   /* v4.1 — was missing */
+  --app-accent-a:  var(--green-600);   /* v4.1 — was missing */
+  --app-secondary: var(--blue-500);
+  --app-highlight: var(--violet-500);
+  --app-stripe:    var(--green-500);
+  --app-focus-ring: 0 0 0 3px rgba(34,197,94,.18);
+  --app-status:    var(--green-400);   /* status ≠ CTA (v4.1) */
+  --logo-colon:    var(--blue-500);
+  --logo-slash1:   var(--green-500);
+  --logo-slash2:   var(--violet-500);
+}
+
+/* gaming — wowchar, games, windrose, SCmissions, SCtraining */
+[data-theme="gaming"] {
+  --app-accent:    var(--green-400);
+  --app-accent-h:  var(--green-300);
+  --app-accent-a:  var(--green-500);
+  --app-secondary: var(--blue-400);
+  --app-highlight: var(--violet-400);
+  --app-stripe:    var(--green-400);
+  --app-focus-ring: 0 0 0 3px rgba(62,208,119,.18);
+  --app-status:    var(--green-300);
+  --logo-sep:      var(--green-400);
+}
+
+/* software — blog, backup, ratings, tools */
+[data-theme="software"] {
+  --app-accent:    var(--blue-500);
+  --app-accent-h:  var(--blue-400);
+  --app-accent-a:  var(--blue-600);
+  --app-secondary: var(--green-600);
+  --app-highlight: var(--violet-600);
+  --app-stripe:    var(--green-500);
+  --app-focus-ring: 0 0 0 3px rgba(37,133,218,.18);
+  --app-status:    var(--green-400);
+  --logo-sep:      var(--blue-500);
+}
+
+/* auth — toa://auth + admin sections */
+[data-theme="auth"] {
+  --app-accent:    var(--violet-500);
+  --app-accent-h:  var(--violet-400);
+  --app-accent-a:  var(--violet-600);
+  --app-secondary: var(--blue-600);
+  --app-highlight: var(--violet-300);
+  --app-stripe:    var(--violet-500);
+  --app-focus-ring: 0 0 0 3px rgba(168,85,247,.18);
+  --app-status:    var(--green-400);
+  --logo-sep:      var(--violet-500);
+}
+
+/* ============================================================
+   v4.1 — LIGHT THEME (opt-in)
+   Mirror ramp inverted; preserves all --app-* tokens.
+   Apply via [data-mode="light"] alongside [data-theme="..."].
+   ============================================================ */
+[data-mode="light"] {
+  --toa-bg:        #F4F6F8;
+  --toa-surface:   #FFFFFF;
+  --toa-surface2:  #F0F2F5;
+  --toa-surface3:  #E7EAEE;
+  --toa-border:    #C9D2DC;
+  --toa-border2:   #94A3B8;
+  --toa-text:      #04070E;
+  --toa-muted:     #1F2A3A;
+  --toa-dim:       #3D5166;
+  --toa-hint:      #5B6E84;
+}
+
+/* ============================================================
+   v4.1 — READING DENSITY (opt-in for longform)
+   Apply via [data-density="reading"] on <main> or article surface.
+   Bumps body → 15px, small → 13px, labels → 11px.
+   ============================================================ */
+[data-density="reading"] {
+  --toa-fs-body:   15px;
+  --toa-fs-small:  13px;
+  --toa-fs-label:  11px;
+  --toa-fs-meta:   10px;
+  --toa-ls-label:  2px;
+  --toa-ls-meta:   1.5px;
+}
+
+/* ============================================================
+   BASE RESET + DOCUMENT
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--toa-font);
+  background: var(--toa-bg);
+  color: var(--toa-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   SEMANTIC TYPOGRAPHY ROLES
+   Use these classes anywhere in HTML — they replace hex/size hardcoding.
+   ============================================================ */
+
+.toa-h1, h1.toa {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-h1);
+  font-weight: 700;
+  line-height: var(--toa-lh-h1);
+  letter-spacing: var(--toa-ls-h1);
+  color: var(--toa-text);
+}
+
+/* H1 outline variant — second word of hero */
+.toa-h1--outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--app-accent);
+}
+
+/* H1 dot — terminal cursor period */
+.toa-h1--dot { color: var(--app-accent); }
+
+.toa-h2, h2.toa {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-h2);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--toa-text);
+}
+
+.toa-h3, h3.toa {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-h3);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--toa-text);
+}
+
+.toa-body, p.toa {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-body);
+  line-height: var(--toa-lh-body);
+  color: var(--toa-muted);
+}
+
+.toa-small {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-small);
+  line-height: 1.55;
+  color: var(--toa-dim);
+}
+
+/* Section labels — uppercase, tracked, 8px */
+.toa-label-text {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-label);
+  font-weight: 700;
+  letter-spacing: var(--toa-ls-label);
+  color: var(--toa-dim);
+  text-transform: uppercase;
+}
+
+/* Meta — 7px, used for badges, eyebrows, sub-labels */
+.toa-meta {
+  font-family: var(--toa-font);
+  font-size: var(--toa-fs-meta);
+  font-weight: 700;
+  letter-spacing: var(--toa-ls-meta);
+  color: var(--toa-dim);
+  text-transform: uppercase;
+}
+
+/* Inline code / monospace token */
+.toa-code, code.toa {
+  font-family: var(--toa-font);
+  font-size: 11px;
+  color: var(--app-accent);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  padding: 1px 6px;
+}
+
+/* Terminal prompt prefix — > or $ */
+.toa-prompt::before { content: '> '; color: var(--app-accent); font-weight: 700; }
+.toa-shell::before  { content: '$ '; color: var(--app-accent); font-weight: 700; }
+
+/* Logo — toa + colored separator */
+.toa-logo {
+  font-family: var(--toa-font);
+  font-weight: 700;
+  color: var(--toa-text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+}
+.toa-logo__colon  { color: var(--logo-colon, var(--blue-500)); }
+.toa-logo__slash1 { color: var(--logo-slash1, var(--green-500)); }
+.toa-logo__slash2 { color: var(--logo-slash2, var(--violet-500)); }
+.toa-logo__sep    { color: var(--logo-sep, var(--app-accent)); }
+
+/*
+ * END · toa:// · colors_and_type.css · v4.0
+ * Use brand.css for the full component layer.
+ */
