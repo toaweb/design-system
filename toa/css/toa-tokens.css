@@ -49,7 +49,7 @@
      Amber, gold, yellow are PERMANENTLY BANNED.
      ──────────────────────────────────────────────── */
 
-  /* Blue family — #2585DA ★ portal & software accent */
+  /* Blue family — #2585DA ★ gaming accent & portal secondary */
   --blue-50:  #EBF4FC;
   --blue-100: #B8D9F5;
   --blue-200: #7FBCEE;
@@ -65,8 +65,8 @@
   --green-50:  #EAFAF0;
   --green-100: #A7ECC2;
   --green-200: #6CDC99;
-  --green-300: #6EE7B7;   /* gaming extreme hover */
-  --green-400: #3ED077;   /* ★ gaming primary */
+  --green-300: #6EE7B7;   /* software extreme hover */
+  --green-400: #3ED077;   /* software accent hover (green-500 is ★ PRIMARY) */
   --green-500: #22C55E;   /* ★ PRIMARY */
   --green-600: #16A34A;   /* active, software secondary */
   --green-700: #15803D;
@@ -77,8 +77,8 @@
   --violet-50:  #F5EEFF;
   --violet-100: #DEB8FB;
   --violet-200: #C786F9;
-  --violet-300: #C4B5FD;   /* gaming magic hover */
-  --violet-400: #B86EF8;   /* gaming magic primary */
+  --violet-300: #C4B5FD;   /* auth magic hover */
+  --violet-400: #B86EF8;   /* auth magic primary */
   --violet-500: #A855F7;   /* ★ PRIMARY */
   --violet-600: #8B33D4;   /* active */
   --violet-700: #7C2CC0;
@@ -161,62 +161,11 @@
 }
 
 /* ============================================================
-   APP THEMES — apply via <html data-theme="X"> on root
+   APP THEMES — the category → colour mapping
+   ([data-theme="software | gaming | auth | portal"]) lives in
+   toa-themes.css. That is the single source of truth; do not
+   redefine [data-theme] accent blocks here.
    ============================================================ */
-
-/* portal — toaweb.com only (3-split topstripe) */
-[data-theme="portal"] {
-  --app-accent:    var(--green-500);
-  --app-accent-h:  var(--green-400);   /* v4.1 — was missing */
-  --app-accent-a:  var(--green-600);   /* v4.1 — was missing */
-  --app-secondary: var(--blue-500);
-  --app-highlight: var(--violet-500);
-  --app-stripe:    var(--green-500);
-  --app-focus-ring: 0 0 0 3px rgba(34,197,94,.18);
-  --app-status:    var(--green-400);   /* status ≠ CTA (v4.1) */
-  --logo-colon:    var(--blue-500);
-  --logo-slash1:   var(--green-500);
-  --logo-slash2:   var(--violet-500);
-}
-
-/* gaming — wowchar, games, windrose, SCmissions, SCtraining */
-[data-theme="gaming"] {
-  --app-accent:    var(--green-400);
-  --app-accent-h:  var(--green-300);
-  --app-accent-a:  var(--green-500);
-  --app-secondary: var(--blue-400);
-  --app-highlight: var(--violet-400);
-  --app-stripe:    var(--green-400);
-  --app-focus-ring: 0 0 0 3px rgba(62,208,119,.18);
-  --app-status:    var(--green-300);
-  --logo-sep:      var(--green-400);
-}
-
-/* software — blog, backup, ratings, tools */
-[data-theme="software"] {
-  --app-accent:    var(--blue-500);
-  --app-accent-h:  var(--blue-400);
-  --app-accent-a:  var(--blue-600);
-  --app-secondary: var(--green-600);
-  --app-highlight: var(--violet-600);
-  --app-stripe:    var(--green-500);
-  --app-focus-ring: 0 0 0 3px rgba(37,133,218,.18);
-  --app-status:    var(--green-400);
-  --logo-sep:      var(--blue-500);
-}
-
-/* auth — toa://auth + admin sections */
-[data-theme="auth"] {
-  --app-accent:    var(--violet-500);
-  --app-accent-h:  var(--violet-400);
-  --app-accent-a:  var(--violet-600);
-  --app-secondary: var(--blue-600);
-  --app-highlight: var(--violet-300);
-  --app-stripe:    var(--violet-500);
-  --app-focus-ring: 0 0 0 3px rgba(168,85,247,.18);
-  --app-status:    var(--green-400);
-  --logo-sep:      var(--violet-500);
-}
 
 /* ============================================================
    v4.1 — LIGHT THEME (opt-in)

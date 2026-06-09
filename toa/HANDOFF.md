@@ -9,9 +9,9 @@ Each app belongs to **one of three categories**, and the category sets the colou
 
 | Category | Colour | `data-theme` | Apps |
 |---|---|---|---|
-| **tools** | green `#22C55E` | `tools` | blog, cms, ratings, windrose, tools |
-| **games** | blue `#2585DA` | `games` | wowchar, games, scmissions, sctraining |
-| **security** | violet `#A855F7` | `secure` | auth, backup, vault |
+| **software** | green `#22C55E` | `software` | blog, cms, ratings, windrose, tools |
+| **gaming** | blue `#2585DA` | `gaming` | wowchar, games, scmissions, sctraining |
+| **auth** | violet `#A855F7` | `auth` | auth, backup, vault |
 | portal (directory) | 3-colour | `portal` | toa://web only |
 
 Set `data-theme` on `<html>` (or any element) and everything under it recolours.
@@ -31,7 +31,7 @@ theme-switching work; keep it that way.
 ```
 Brand Identity.html        full component library (20 sections, live)
 toa-tokens.css             foundations — from the design system, ship as-is
-toa-themes.css             NEW — category → colour mapping (tools/games/secure/portal)
+toa-themes.css             NEW — category → colour mapping (software/gaming/auth/portal)
 toa-components.css         base components — from the design system, ship as-is
 toa-patterns.css           NEW — url-bar, hero, nav/dropdown, grid, cards, lists, feed, states…
 kit-chrome.css             docs scaffolding ONLY — not part of the product

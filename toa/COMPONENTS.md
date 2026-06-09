@@ -538,12 +538,12 @@ toa-logo--sm   15px
   </div>
   <div class="toa-feed__row">
     <span class="toa-feed__ts">2026-06-04 17:40</span>
-    <span class="toa-feed__app toa-feed__app--tools">toablog</span>
+    <span class="toa-feed__app toa-feed__app--software">toablog</span>
     <span class="toa-feed__ev">DEPLOY</span>
     <span class="toa-feed__msg">v2.1.4 → production</span>
   </div>
 </div>
-<!-- toa-feed__app--tools / --games / --secure for kategori-farge -->
+<!-- toa-feed__app--software / --gaming / --auth for kategori-farge -->
 ```
 
 ---

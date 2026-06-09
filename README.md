@@ -64,9 +64,9 @@ Set `data-theme` on the `<html>` element:
 | App | data-theme | Accent |
 |---|---|---|
 | toaweb.com portal | `portal` | 3-color stripe (blue/green/violet) |
-| toablog, toacms, toabackup, toascribe | `software` | blue #2585DA |
-| toagames, toawowchar | `gaming` | green #3ED077 |
-| Auth pages | `auth` | violet #A855F7 |
+| toablog, toacms, toascribe | `software` | green #22C55E |
+| toagames, toawowchar | `gaming` | blue #2585DA |
+| toabackup, auth pages | `auth` | violet #A855F7 |
 
 ## CSS Load Order
 

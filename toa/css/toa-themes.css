@@ -5,15 +5,15 @@
    The brand identity layer that maps the three brand colors to
    the three APP CATEGORIES of the toa:// ecosystem:
 
-       tools    → GREEN    (blog, cms, ratings, windrose, tools)
-       games    → BLUE     (wowchar, games, scmissions, sctraining)
-       secure   → VIOLET   (auth, backup, vault)
+       software → GREEN    (blog, cms, ratings, windrose, tools)
+       gaming   → BLUE     (wowchar, games, scmissions, sctraining)
+       auth     → VIOLET   (auth, backup, vault)
 
    The portal (toa://web — the directory) keeps the full
    three-colour mark and the 3-split topstripe.
 
    Load order:  toa-tokens.css → toa-themes.css → toa-components.css → toa-patterns.css
-   Set on <html data-theme="tools | games | secure | portal">.
+   Set on <html data-theme="software | gaming | auth | portal">.
    Components must reference --app-* only, never the raw shade vars.
    ============================================================ */
 
@@ -26,10 +26,10 @@
   --app-tint-bd:   color-mix(in srgb, var(--app-accent) 28%, transparent);
 }
 
-/* ── TOOLS — green ─────────────────────────────────────────
+/* ── SOFTWARE — green ─────────────────────────────────────────
    Self-hosted utilities, writing, content, planners. */
-[data-theme="tools"] {
-  --app-cat:        "TOOLS";
+[data-theme="software"] {
+  --app-cat:        "SOFTWARE";
   --app-accent:     var(--green-500);
   --app-accent-h:   var(--green-400);
   --app-accent-a:   var(--green-600);
@@ -41,10 +41,10 @@
   --logo-sep:       var(--green-500);
 }
 
-/* ── GAMES — blue ──────────────────────────────────────────
+/* ── GAMING — blue ──────────────────────────────────────────
    Game tooling, rosters, launchers, mission/training apps. */
-[data-theme="games"] {
-  --app-cat:        "GAMES";
+[data-theme="gaming"] {
+  --app-cat:        "GAMING";
   --app-accent:     var(--blue-500);
   --app-accent-h:   var(--blue-400);
   --app-accent-a:   var(--blue-600);
@@ -56,10 +56,10 @@
   --logo-sep:       var(--blue-500);
 }
 
-/* ── SECURE — violet ───────────────────────────────────────
+/* ── AUTH — violet ───────────────────────────────────────
    Auth, backup, vaults, anything custodial / security-adjacent. */
-[data-theme="secure"] {
-  --app-cat:        "SECURITY";
+[data-theme="auth"] {
+  --app-cat:        "AUTH";
   --app-accent:     var(--violet-500);
   --app-accent-h:   var(--violet-400);
   --app-accent-a:   var(--violet-600);
@@ -95,7 +95,7 @@
    toa-components.css (the original brand.css) hard-codes a few
    green rgba() tints from when green was the only portal accent.
    These re-point them at the live --app-accent so the base
-   components recolour correctly under tools/games/secure.
+   components recolour correctly under software/gaming/auth.
    ============================================================ */
 .toa-app-card__icon,
 .toa-icon-tile--accent {
